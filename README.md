@@ -140,7 +140,7 @@ npm install
 ```
 
 This is also hopefully straightforward by now it will look into the `package.json` and `package-lock.json` to install the needed dependencies for this project to do its job.
-It will create your `node_modules` folder for you which is what ~~makes time travel possible~~ lets the project run.
+It will create your `node_modules` folder for you which is what makes time travel possible lets the project run.
 
 &nbsp;
 
