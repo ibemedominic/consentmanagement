@@ -166,19 +166,20 @@ npm run start
 
 -   This assumes you have a `dist/server.js` and `public/js/app.js` already built.
 
-We will use this script in production. We don't need all the auto-restart stuff from the `watch:*` scripts. 
-Just start the server and be done with it.
-You would need to setup the environment variables specified in the .env file in your environment first before running
+We will use this script in production. We don't need all the auto-restart stuff from the `watch:*` scripts.  
+Just start the server and be done with it.  
+You would need to setup the environment variables specified in the .env file in your environment first before running in production mode.
+
 if deploying in a container like docker, kindly ensure that the right CMD commands are provided in your Dockerfile to execute
 
 The following Environment variables are required to connect to the Database as well as configure the server in production
 
-DB_PORT=3306
-DB_HOST=localhost
-DB_USER=<username>
-DB_PASSWORD=<password>
-DB_NAME=didomi
-PORT=3000
+DB_PORT=3306  
+DB_HOST=localhost  
+DB_USER=<username>  
+DB_PASSWORD=<password>  
+DB_NAME=didomi  
+PORT=3000  
 
 In development mode, you would need to create a file called `.env` in the root folder and place all the environment variables there
 
@@ -191,33 +192,32 @@ In development mode, you would need to create a file called `.env` in the root f
 
 The server build process compiles the TypeScript files found in `src/server` into a single bundled JavaScript file (`server.js`) located in the `dist` directory, which is created for us during the process.
 
-This will be where we code all things relating to our database. It's where we'll include all of our REST API routes. 
-All of our back-end utilities.
+This is where i added all the codes relating to the database. It's also where all of the REST API routes reside as well as the backend utilities.
 
-The Application was designed to be as modular as possible.
-We provided multiple abstraction layers to decouple as much functionality as necessary as follows according to folder structure
+The Application was designed to be as modular as possible...  
+I provided multiple abstraction layers to decouple as much functionality as necessary as follows according to folder structure
 
-- src/server/config
+- src/server/config  
 	This provides system wide configuration settings by reading key parameters from the environment variables or the .env file (development mode)
 
-- src/server/model 
+- src/server/model  
 	This keeps track of all our Database Model Objects and entities for transporting data across the application as well 
 
-- src/server/migrations 
-	This can be used to keep track of schema changes within the application
-	Every new Schema change can be grouped into a new update file that can then be executed on the server
+- src/server/migrations  
+	This can be used to keep track of schema changes within the application.   
+	Every new set of Schema changes can be grouped into a new update file that can then be executed on the server
 
-- src/server/repository 
-	This represents all the querries and Data Access Objects that are used accross the application
+- src/server/repository  
+	This represents all the querries and Data Access Objects that are used accross the application  
 	It also holds the Connection settings
 
-- src/server/service
-	This represents the Service layer of the application, that manages all the business logic and data interactions within the application
+- src/server/service  
+	This represents the Service layer of the application that manages all the business logic and data interactions within the application
 
-- src/server/validations
+- src/server/validations  
 	This handles all the validations in the application framework
 
-- tests
+- tests  
 	This contains the Test Cases for the Application
 
 
@@ -225,21 +225,22 @@ We provided multiple abstraction layers to decouple as much functionality as nec
 
 ## 🗄️ Configuration Files
 
--   `.gitignore` is what we use to **not** push certain files or folders to GitHub. This starts with our dependencies and production bundles being ignored. Feel free to add any file that contains sensitive information away from GitHub using this. A common addition would be a `.env` file, for example, that contains our 3rd Party API Keys.
+-   `.gitignore` - This is used to **not** push certain files or folders to GitHub. This starts with the dependencies and production bundles being ignored.  
 
--   `package-lock.json` is automatically generated whenever you run a command that modifies `node_modules` or `package.json`. It describes the exact modification that was made, such that subsequent installs are able to generate identical modifications, regardless of intermediate dependency updates.
+-   `package-lock.json` - This is automatically generated whenever you run a command that modifies `node_modules` or `package.json`.   
+	It describes the exact modification that was made, such that subsequent installs are able to generate identical modifications, regardless of intermediate dependency updates.
 
--   `package.json` it's the basic "metadata" relevant to the project and it is used for managing the project's dependencies, scripts, version and a whole lot more.
+-   `package.json`- The basic "metadata" relevant to the project and is used for managing the project's dependencies, scripts, version and a whole lot more.
 
--   `README.md` the markdown file that displays here in GitHub that you're reading right now.
+-   `README.md` -The markdown file that displays here in GitHub that you're reading right now.
 
--   `tsconfig.client.json` the TypeScript rules our TSC compiler will follow and allow when building the React app. 
+-   `tsconfig.client.json` the TypeScript rules our TSC compiler will follow and allow when building the React app.  
 	This was not completed as it wasnt necessary as earlier thought.
 
--   `tsconfig.server.json` the same as above, basically, except for our server code. We tell it to include the types for `node` and `express` so it can help us write the basics of our server with improved intellisense support and less manual strong typing. Basically it makes our TSC "infer" some of the basic server types for us automatically.
+-   `tsconfig.server.json` the same as above, basically, except for our server code.  
 
 -   `webpack.config.js` the rules, loaders, and plugins our entire build process follows. 
-
+	
 &nbsp;
 
 &nbsp;
