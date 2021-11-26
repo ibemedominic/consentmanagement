@@ -35,7 +35,6 @@ export function getConnection() : Promise<mysql.Connection>
 	{
 		if(Connection.state == "disconnected") 
 		{
-			console.log("Connection State = " + Connection.state);
 			Connection.connect((err : any)=>
 			{
 				if(err)
