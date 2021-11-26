@@ -22,18 +22,19 @@ export default class Update_0001 implements IModuleUpdate
 	installSchema(): Promise<any> 
 	{
 		var schemaQuerries : string[] = [];
-		schemaQuerries.push(`CREATE TABLE DB_VERSION ( product varchar(40) not null, version bigint not null, primary key (product) )`);
+		schemaQuerries.push(`create table db_version ( product varchar(40) not null, version bigint not null, primary key (product) )`);
 
-		schemaQuerries.push(`CREATE TABLE USERS ( id varchar(40) not null, email varchar(200) not null, primary key (id), 
-			constraint EMAIL_UK unique (email) )`);
+		schemaQuerries.push(`create table users ( id varchar(40) not null, email varchar(200) not null, primary key (id), 
+			constraint email_uk unique (email) )`);
 
-		schemaQuerries.push(`CREATE TABLE userconsents ( id varchar(30) not null, userId varchar(40) not null, enabled char(1) not null,
+		schemaQuerries.push(`create table userconsents ( id varchar(30) not null, userId varchar(40) not null, enabled char(1) not null,
 			 sortId int(10) not null, batchId bigint not null, txnDate datetime not null, primary key (userId, id),
-			 constraint FK_USERCONSENTS_USERID FOREIGN KEY(userId) REFERENCES USERS(id) )`);
+			 constraint fk_userconsents_userid foreign key(userId) references users(id) )`);		
 
-		schemaQuerries.push(`CREATE TABLE userconsents_aud ( id varchar(30) not null, userId varchar(40) not null, enabled char(1) not null,
+		schemaQuerries.push(`create table userconsents_aud ( id varchar(30) not null, userId varchar(40) not null, enabled char(1) not null,
 			sortId int(10) not null, batchId bigint not null, txnDate datetime not null, primary key (userId, id, batchId),
-			constraint FK_USERCONSENTS_AUD_USERID FOREIGN KEY(userId) REFERENCES USERS(id)  )`);
+			constraint fk_userconsents_aud_userid foreign key(userId) references users(id)  )`);
+			
 
 		return mapSeriesParameter(runDirectQueryPromise, schemaQuerries);
 	}
