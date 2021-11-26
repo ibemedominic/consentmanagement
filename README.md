@@ -141,10 +141,38 @@ npm install
 
 This is also hopefully straightforward by now it will look into the `package.json` and `package-lock.json` to install the needed dependencies for this project to do its job.
 It will create your `node_modules` folder for you which is what makes time travel possible lets the project run.
+if you have any errors, perhaps cos you have a newer version of node, you can use 
+
+```bash
+npm install --force
+```
+
+To force the installation
+
 
 &nbsp;
 
-Fourth:
+
+Fourth:  
+
+In development mode, you would need to create a file called `.env` in the root folder and place all the environment variables there
+
+DB_PORT=3306  
+DB_HOST=localhost  
+DB_USER=<username>  
+DB_PASSWORD=<password>  
+DB_NAME=didomi  
+PORT=3000  
+
+In Production mode you do not need to specify a .env file,  
+please note that the Production environment expects an environment variable defined as follows  
+
+NODE_ENV = production  
+
+You would need to setup the environment variables specified in the .env file in your environment first before running in production mode.  
+The Environment variables are required to connect to the Database as well as configure the server in production
+
+Fifth:
 
 ```bash
 npm run dev
@@ -168,20 +196,10 @@ npm run start
 
 We will use this script in production. We don't need all the auto-restart stuff from the `watch:*` scripts.  
 Just start the server and be done with it.  
-You would need to setup the environment variables specified in the .env file in your environment first before running in production mode.
 
 if deploying in a container like docker, kindly ensure that the right CMD commands are provided in your Dockerfile to execute
 
-The following Environment variables are required to connect to the Database as well as configure the server in production
 
-DB_PORT=3306  
-DB_HOST=localhost  
-DB_USER=<username>  
-DB_PASSWORD=<password>  
-DB_NAME=didomi  
-PORT=3000  
-
-In development mode, you would need to create a file called `.env` in the root folder and place all the environment variables there
 
 
 
