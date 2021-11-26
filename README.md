@@ -14,7 +14,7 @@
 ## 🧠 Purpose
 
 This project meets the requirements of a Consent Management API as described in the requirements of Didomi.
-The Project was implemented using Node JS, Typescript using Node js Express 
+The Project was implemented using Node JS, Typescript and Node js Express 
 The Application runs on mysql server and requires a database to be created before use
 
 To Create a database from the mysql terminal
@@ -28,32 +28,32 @@ To Create a database from the mysql terminal
 
 The Application provides the following Apis for the following functionalities
 
-Path = /users
-Request Method = GET
-Query Parameters : id - The Id of the User to be Fetched
-Description = This returns the User and Consents attached to the specified Query Parameter "id"
-Returns - It returns the details of the Querried User
+Path = /users   
+Request Method = GET  
+Query Parameters : id - The Id of the User to be Fetched  
+Description = This returns the User and Consents attached to the specified Query Parameter "id"  
+Returns - It returns the details of the Querried User  
 
 
-Path = /users
-Request Method = POST
-JSON BODY : 
-Description = This is used to Create the User.
-				Atleast an Email address must be passed 
-				Additionally, if a consent array is passed, it would be updated as well on the newly created user
-Returns - It returns the Id as well as the details of the Newly Created User
+Path = /users  
+Request Method = POST  
+JSON BODY :   
+Description = This is used to Create the User.  
+				Atleast an Email address must be passed   
+				Additionally, if a consent array is passed, it would be updated as well on the newly created user  
+Returns - It returns the Id as well as the details of the Newly Created User  
 
 
-Path = /users
-Request Method = DELETE
-Query Parameters : id - The Id of the User to be Removed
-Description = This is used to Delete a User as well as all the associated Consents and Histories
+Path = /users  
+Request Method = DELETE  
+Query Parameters : id - The Id of the User to be Removed  
+Description = This is used to Delete a User as well as all the associated Consents and Histories  
 
 
-Path = /events
-Request Method = POST
-JSON BODY : 
-Description = This is used to specify the consents for a Given User the Consent is passed along with the User Data as follows
+Path = /events  
+Request Method = POST  
+JSON BODY :   
+Description = This is used to specify the consents for a Given User the Consent is passed along with the User Data as follows  
 
 ```json
 {
@@ -77,19 +77,19 @@ Returns - It returns the the details of the User as well as current consents
 
 
 
-Path = /install
-Request Method = POST
-Description = This api can be used to Install the Database.
-				It invokes the migration layer that performs all the necessary database initializations
-				You would need to create the database first
+Path = /install  
+Request Method = POST  
+Description = This api can be used to Install the Database.  
+				It invokes the migration layer that performs all the necessary database initializations  
+				You would need to create the database first  
 
 
-Path = /eventhistories
-Request Method = GET
-Query Parameters : id - The Id of the User whose Consents Histories to be Fetched
-Description = This api is used to retrieve the consent histories of a Given User, It allows us keep track
-			of the request flow that led up to the current Consent.
-Returns - It returns the Event Histories of the given User
+Path = /eventhistories  
+Request Method = GET  
+Query Parameters : id - The Id of the User whose Consents Histories to be Fetched  
+Description = This api is used to retrieve the consent histories of a Given User, It allows us keep track  
+			of the request flow that led up to the current Consent.  
+Returns - It returns the Event Histories of the given User  
 
 
 
