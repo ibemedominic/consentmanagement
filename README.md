@@ -1,4 +1,4 @@
-# Didomi Node JS Project
+# Consent Management Node JS Project
 
 &nbsp;
 
@@ -55,6 +55,7 @@ Request Method = POST
 JSON BODY : 
 Description = This is used to specify the consents for a Given User the Consent is passed along with the User Data as follows
 
+```json
 {
   "user": {
     "id": "00000000-0000-0000-0000-000000000000"
@@ -70,6 +71,8 @@ Description = This is used to specify the consents for a Given User the Consent 
     }
   ]
 }
+```
+
 Returns - It returns the the details of the User as well as current consents
 
 
@@ -244,4 +247,4 @@ We provided multiple abstraction layers to decouple as much functionality as nec
 ## 🔐 Closing Remarks
 
 The project was written to be as consise and easy to understand as possible.
-we adopted methodologies from the 12 factor app process to streamline the application for easy of deployment to a microservice based environment like docker.
+I adopted methodologies from the 12 factor app process to streamline the application for easy of deployment to a microservice based environment like docker.
