@@ -1,8 +1,0 @@
-# dependencies
-node_modules/
-coverage/
-
-# production bundles
-dist/
-public/js/app.js
-.env
