@@ -13,7 +13,7 @@
 
 ## 🧠 Purpose
 
-This project provides a set of Consent Management APIs.
+This project meets the requirements of a Consent Management API as described in the requirements of Didomi.
 The Project was implemented using Node JS, Typescript and Node js Express 
 The Application runs on mysql server and requires a database to be created before use
 
